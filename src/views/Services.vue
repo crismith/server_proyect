@@ -2,8 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <b-button class="float-right">Button</b-button>
-        <p></p>
+        <router-link to="/services/create">Create</router-link>
       </div>
       <div class="col-sm-12">
         <b-table

@@ -1,14 +1,35 @@
 <template>
   <div>
     <div>
-      <div class="card" style="width: 18rem;" v-for="(container, index) in containers" :key="index">
-        <div class="card-header">
-          {{ container.name }}
-        </div>
+      <div class="card" v-for="(container, index) in containers" :key="index">
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h1>
+            {{ container.name }}
+          </h1>
+          <div>
+            <div>
+              <p>
+                321 ms
+              </p>
+              <span>
+                Latency last 24h
+              </span>
+            </div>
+            <div>
+              <p>
+                434 ms
+              </p>
+              <span>
+                Latency last week
+              </span>
+            </div>
+          </div>
+          <div>
+            Panel de chart
+          </div>
+          <div>
+            <span class="badge badge-success">OFFLINE</span>
+          </div>
         </div>
       </div>
     </div>
