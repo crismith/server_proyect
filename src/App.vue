@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <b-navbar toggleable="lg" type="dark" variant="info" v-if="nameRoute">
-      <b-navbar-brand href="#"> monhttp </b-navbar-brand>
+      <h4>
+        <router-link to="/">monhttp</router-link>
+      </h4>
+
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
