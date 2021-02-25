@@ -1,44 +1,43 @@
 <template>
-  <div>
-    <div>
-      <div class="card" v-for="(container, index) in containers" :key="index">
-        <div class="card-body">
-          <h5 class="card-title text-left">
-            <router-link :to="{ path: '/services/'+index}">
+  <section class="section-services">
+    <div class="container-services">
+      <div class="card-service card mb-3 ml-2 mr-2" v-for="(container, index) in containers" :key="index">
+        <div class="card-body body-service">
+          <strong class="card-title text-left d-block name-service">
+            <router-link class="url-service" :to="{ path: '/services/'+index}">
               {{ container.name }}
             </router-link>
-          </h5>
+          </strong>
           
-          <div class="d-flex justify-content-between">
-            <div class="d-flex flex-column justify-content-center">
-              <strong>
+          <div class="d-flex justify-content-around info-service mt-2 pb-2">
+            <div class="data-hour-week d-flex flex-column justify-content-center">
+              <strong class="number">
                 321 ms
               </strong>
-              <span class="mt-1">
+              <span class="mt-1 title">
                 Latency last 24h
               </span>
             </div>
 
-            <div class="d-flex flex-column justify-content-center">
-              <strong>
+            <div class="data-hour-week d-flex flex-column justify-content-center">
+              <strong class="number">
                 321 ms
               </strong>
-              <span class="mt-1">
+              <span class="mt-1 title">
                 Latency last week
               </span>
             </div>
           </div>
-          <div>
-            <ve-line :data="chartData"></ve-line>
+          <div class="service-chart">
             Panel de chart
           </div>
-          <div>
+          <div class="d-block text-right">
             <span class="badge badge-success">OFFLINE</span>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -326,6 +325,7 @@
           },
         ],
         chartData: {
+          height: 200,
           columns: ['date', 'PV'],
           rows: [
             { 'date': '01-01', 'PV': 1231 },
@@ -341,6 +341,75 @@
   }
 </script>
 
-<style>
+<style lang="scss" scoped>
+  .section-services{
+    .container-services{
+      .card-service{
+        box-shadow: 0 2px 1px -1px rgb(0, 0, 0,  .20), 0 1px 1px 0 rgb(0, 0, 0, .14), 0 1px 3px 0 rgb(0, 0, 0, .12);
+        .body-service{
+          .name-service{
+            margin: 0;
+            .url-service{
+              color: #000;
+              cursor: pointer;
+              font-size: 20px;
+            }
+          }
+          .info-service{
+            border-bottom: 1px solid #000;
+            .data-hour-week{
+              .number{
+                font-size: 14px;
+              }
+              .title{
+                font-size: 12px;
+              }
+            }
+          }
+          .service-chart{
+            height: 200px;
+            border: 1px solid;
+          }
+        }
+      }
+    }
+  }
 
-</style>
+  @media (min-width: 768px) {
+    .section-services{
+      padding: 1em 0;
+      .container-services{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        .card-service{
+          width: 47%;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-services{
+      .container-services{
+        .card-service{
+          width: 31%;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-services{
+      .container-services{
+        .card-service{
+          width: 24%;
+          .body-service{
+            padding: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+</style>>
