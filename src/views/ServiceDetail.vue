@@ -6,48 +6,48 @@
           <div class="card-body">
             <div class="d-flex align-items-center text-left mb-3">
               <span class="badge badge-success">OFFLINE</span>
-              <h5 class="card-title text-left m-0">
+              <h6 class="card-title text-left m-0">
                 <strong>
                   Test Service
                 </strong>
-              </h5>
+              </h6>
             </div>
 
-            <div class="data-service d-flex align-items-center ">
-              <div class="d-flex flex-column">
+            <div class="data-service d-flex ">
+              <div class="text-center flex-column">
                 <span class="number">
                   323 ms
                 </span>
-                <span class="mt-3 first-title">
+                <p class="mb-0 mt-3  first-title">
                   Average response last 24 hours
-                </span>
+                </p>
               </div>
 
-              <div class="d-flex flex-column">
+              <div class="text-center flex-column">
                 <span class="number">
                   323 ms
                 </span>
-                <span class="mt-3 first-title">
+                <p class="mb-0 mt-3  first-title">
                   Average response last 7 days
-                </span>
+                </p>
               </div>
 
-              <div class="d-flex flex-column">
+              <div class="text-center flex-column">
                 <span class="number">
-                  100.00 %
+                  100.00%
                 </span>
-                <span class="mt-3 first-title">
+                <p class="mb-0 mt-3  first-title">
                   Uptime last 24 hours
-                </span>
+                </p>
               </div>
 
-              <div class="d-flex flex-column">
+              <div class="text-center flex-column">
                 <span class="number">
-                  99.89 %
+                  99.89%
                 </span>
-                <span class="mt-3 first-title">
+                <p class="mb-0 mt-3  first-title">
                   Uptime last 7 days
-                </span>
+                </p>
               </div>
             </div>
           </div>
@@ -58,22 +58,22 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex align-items-center text-left mb-2">
-              <h5 class="card-title text-left m-0">
+              <h6 class="card-title text-left m-0">
                 <strong>
                   Timeframe
                 </strong>
-              </h5>
+              </h6>
             </div>
 
-            <div class="">
-              <div class="m-3">
-                <input class="form-control" type="datetime-local">
+            <div class="filters-time d-md-flex mt-md-3">
+              <div class="container-input-time mb-3 mt-3 mb-md-0 mt-md-0 ml-md-3 mr-md-3">
+                <input class="form-control input-time" type="datetime-local">
               </div>
-              <div class="m-3">
-                <input class="form-control" type="datetime-local">
+              <div class="container-input-time mb-3 mt-3 mb-md-0 mt-md-0 ml-md-3 mr-md-3">
+                <input class="form-control input-time" type="datetime-local">
               </div>
-              <div class="m-3">
-                <select class="form-control">
+              <div class="container-input-time mb-3 mt-3 mb-md-0 mt-md-0 ml-md-3 mr-md-3">
+                <select class="form-control input-time">
                   <option>1 minute</option>
                   <option>5 minute</option>
                   <option selected>15 minute</option>
@@ -82,7 +82,6 @@
                   <option>3 hour</option>
                 </select>
               </div>
-
             </div>
           </div>
         </div>
@@ -92,15 +91,15 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex align-items-center text-left mb-2">
-              <h5 class="card-title text-left m-0">
+              <h6 class="card-title text-left m-0">
                 <strong>
                   Service latency
                 </strong>
-              </h5>
+              </h6>
             </div>
-            <div class="d-flex">
-              <div class="m-1">
-                <p>
+            <div class="">
+              <div class="m-1 text-center">
+                <p class=" m-0">
                   No entries found for this timeframe
                 </p>
               </div>
@@ -112,14 +111,18 @@
       <div class="col-sm-12 mb-3 column-card ">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">
-              Service failures by day
-            </h5>
-            <div class="d-flex">
-              <div class="m-1">
-                <h4>
+            <div class="d-flex align-items-center text-left mb-2">
+              <h6 class="card-title text-left m-0">
+                <strong>
+                  Service failures by day
+                </strong>
+              </h6>
+            </div>
+            <div class="">
+              <div class="m-1 text-center">
+                <p class="m-0">
                   No entries found for this timeframe
-                </h4>
+                </p>
               </div>
             </div>
           </div>
@@ -129,10 +132,15 @@
       <div class="col-sm-12 column-card">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">
-              Failures
-            </h5>
-            <div class="d-flex">
+            <div class="d-flex align-items-center text-left mb-2">
+              <h6 class="card-title text-left m-0">
+                <strong>
+                  Failures
+                </strong>
+              </h6>
+            </div>
+
+            <div class="">
               <div class="m-1">
                 <table class="table">
                   <thead>
@@ -148,9 +156,9 @@
                     </tr>
                   </tbody>
                 </table>
-                <h4>
+                <p class="text-center m-0">
                   No entries found for this timeframe
-                </h4>
+                </p>
               </div>
             </div>
           </div>
@@ -168,19 +176,30 @@
 
 <style lang="scss" scoped>
   .section-detail-service{
+    margin-bottom: 50em;
     .column-detail-service{
       .column-card{
         padding: 0;
         .card{
           .card-body{
-            padding: .8rem;
+            padding: 1rem .7rem;
             .data-service{
+              width: 100%;
               .flex-column{
+                // padding: 0 .2rem;
+                width: 25%;
                 .number{
                   font-size: 15px;
                 }
                 .first-title{
-                  font-size: 11px;
+                  font-size: 10px;
+                }
+              }
+            }
+            .filters-time{
+              .container-input-time{
+                .input-time{
+                  height: 50px;
                 }
               }
             }
