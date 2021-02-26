@@ -66,17 +66,13 @@
             </div>
 
             <div class="">
-              <div class="m-1">
-                <input  
-                  class="form-control" 
-                  type="datetime-local">
+              <div class="m-3">
+                <input class="form-control" type="datetime-local">
               </div>
-              <div class="m-1">
-                <input  
-                  class="form-control" 
-                  type="datetime-local">
+              <div class="m-3">
+                <input class="form-control" type="datetime-local">
               </div>
-              <div class="m-1">
+              <div class="m-3">
                 <select class="form-control">
                   <option>1 minute</option>
                   <option>5 minute</option>
@@ -95,14 +91,18 @@
       <div class="col-sm-12 mb-3 column-card ">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">
-              Service latency
-            </h5>
+            <div class="d-flex align-items-center text-left mb-2">
+              <h5 class="card-title text-left m-0">
+                <strong>
+                  Service latency
+                </strong>
+              </h5>
+            </div>
             <div class="d-flex">
               <div class="m-1">
-                <h4>
+                <p>
                   No entries found for this timeframe
-                </h4>
+                </p>
               </div>
             </div>
           </div>
