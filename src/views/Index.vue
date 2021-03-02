@@ -337,6 +337,27 @@
           ]
         }
       }
+    },
+    mounted() {
+      this.getServices();
+    },
+    methods: {
+      getServices() {
+        const token = "Basic YWRtaW46YWRtaW4="; 
+
+        const options = {
+          method: 'GET',
+          headers: { 
+            'content-type': 'application/x-www-form-urlencoded',
+            'Authorization': token
+          },
+        };
+        console.log('token',token)
+        this.axios.get("http://localhost:8081/api/services", options)
+          .then((response) => {
+            console.log(response.data)
+          })
+      }
     }
   }
 </script>

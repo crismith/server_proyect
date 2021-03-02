@@ -9,8 +9,8 @@
             >
             <b-tab title="Import" active>
               <b-card-text>
-                <div>
-                  <h2>CSV Import</h2>
+                <div class="text-left">
+                  <h4>CSV Import</h4>
                   <div>
                     <label for="fileCSV" class="btn btn-primary label_photo">
                       Choose File
@@ -37,15 +37,17 @@
             >
             <b-tab title="E-Mail">
               <b-card-text>
-                <h2>
+                <h4 class="text-left">
                   E-Mail
-                </h2>
+                </h4>
                 <form>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-4 col-form-label"
+                    <label
+                      for="staticEmail"
+                      class="col-sm-4 col-form-label text-left pl-4"
                       >Enabled</label
                     >
-                    <div class="col-sm-8">
+                    <div class="col-sm-1">
                       <input
                         class="form-check-input"
                         type="checkbox"
@@ -55,7 +57,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-4 col-form-label"
+                    <label for="staticEmail" class="col-sm-4 col-form-label text-left pl-4"
                       >Host</label
                     >
                     <div class="col-sm-8">
@@ -68,7 +70,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-4 col-form-label"
+                    <label for="staticEmail" class="col-sm-4 col-form-label text-left pl-4"
                       >Port</label
                     >
                     <div class="col-sm-8">
@@ -81,7 +83,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-4 col-form-label"
+                    <label for="staticEmail" class="col-sm-4 col-form-label text-left pl-4"
                       >From</label
                     >
                     <div class="col-sm-8">
@@ -94,7 +96,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-4 col-form-label"
+                    <label for="staticEmail" class="col-sm-4 col-form-label text-left pl-4"
                       >Password</label
                     >
                     <div class="col-sm-8">
@@ -107,7 +109,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-4 col-form-label"
+                    <label for="staticEmail" class="col-sm-4 col-form-label text-left pl-4"
                       >To</label
                     >
                     <div class="col-sm-8">
@@ -120,7 +122,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-4 col-form-label"
+                    <label for="staticEmail" class="col-sm-4 col-form-label text-left pl-4"
                       >Subject</label
                     >
                     <div class="col-sm-8">
@@ -133,7 +135,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-4 col-form-label"
+                    <label for="staticEmail" class="col-sm-4 col-form-label text-left pl-4"
                       >Up template</label
                     >
                     <div class="col-sm-8">
@@ -145,7 +147,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-4 col-form-label"
+                    <label for="inputPassword" class="col-sm-4 col-form-label text-left pl-4"
                       >Down template</label
                     >
                     <div class="col-sm-8">
@@ -153,21 +155,28 @@
                     </div>
                   </div>
                 </form>
-                <div>
-                  <button class="btn btn-primary">Test up message</button>
-                  <button class="btn btn-primary">Test down message</button>
-                  <button class="btn btn-primary">Save</button>
+                <div class="d-flex justify-content-end">
+                  <button disabled class="btn btn-primary mr-1">
+                    Test up message
+                  </button>
+                  <button disabled class="btn btn-primary mr-1">
+                    Test down message
+                  </button>
+                  <button disabled class="btn btn-primary">Save</button>
                 </div>
               </b-card-text>
             </b-tab>
             <b-tab title="Telegram Notifier">
               <b-card-text>
+                <h4 class="text-left">
+                  Telegram Notifier
+                </h4>
                 <form>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-4 col-form-label"
+                    <label for="staticEmail" class="col-sm-4 col-form-label pl-3 text-left"
                       >Enabled</label
                     >
-                    <div class="col-sm-8">
+                    <div class="col-sm-1">
                       <input
                         class="form-check-input"
                         type="checkbox"
@@ -177,7 +186,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-4 col-form-label"
+                    <label for="staticEmail" class="col-sm-4 col-form-label pl-3 text-left"
                       >Api Token</label
                     >
                     <div class="col-sm-8">
@@ -190,7 +199,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-4 col-form-label"
+                    <label for="staticEmail" class="col-sm-4 col-form-label pl-3 text-left"
                       >Channel</label
                     >
                     <div class="col-sm-8">
@@ -203,7 +212,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-4 col-form-label"
+                    <label for="staticEmail" class="col-sm-4 col-form-label pl-3 text-left"
                       >Up template</label
                     >
                     <div class="col-sm-8">
@@ -215,7 +224,7 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-4 col-form-label"
+                    <label for="inputPassword" class="col-sm-4 col-form-label pl-3 text-left"
                       >Down template</label
                     >
                     <div class="col-sm-8">
@@ -223,10 +232,10 @@
                     </div>
                   </div>
                 </form>
-                <div>
-                  <button class="btn btn-primary">Test up message</button>
-                  <button class="btn btn-primary">Test down message</button>
-                  <button class="btn btn-primary">Save</button>
+                <div class="d-flex justify-content-end">
+                  <button disabled class="btn btn-primary mr-2">Test up message</button>
+                  <button disabled class="btn btn-primary mr-2">Test down message</button>
+                  <button disabled class="btn btn-primary">Save</button>
                 </div>
               </b-card-text>
             </b-tab>
