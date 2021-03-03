@@ -8,7 +8,7 @@
             <form class="form-signin" @submit.prevent="sendDataLogin">
               <div class="form-label-group">
                 <input v-model="emailInput" type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
-                <label for="inputEmail">Email address</label>
+                <label for="inputEmail">Username</label>
               </div>
 
               <div class="form-label-group">
@@ -16,7 +16,7 @@
                 <label for="inputPassword">Password</label>
               </div>
 
-              <button :disabled="dataModel" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
+              <button :disabled="!dataModel" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
             </form>
           </div>
         </div>
@@ -27,6 +27,7 @@
 
 <script>
   export default {
+    name: "Login",
     data() {
       return {
         emailInput: "",
@@ -35,20 +36,29 @@
     },
     methods: {
       sendDataLogin() {
-        this.axios.get(api).then((response) => {
-          console.log(response.data)
+        if (!this.dataModel) return;
+        this.axios.get("http://localhost:8081/api/login", {
+          username: this.emailInput,
+          password: this.passwordInput
         })
+          .then((response) => {
+            console.log(response.data)
+          })
+          .catch(error => {
+            console.log('error',error)
+          })
       }
     },
     computed: {
       dataModel() {
-        if (this.emailInput !== "" && this.password !== "") return true;
+        if (this.emailInput !== "" && this.passwordInput !== "") return true;
         return false;
       }
     }
   }
 </script>
-<style>
+<style lang="scss" scoped>
+
 :root {
   --input-padding-x: 1.5rem;
   --input-padding-y: .75rem;
@@ -150,15 +160,6 @@ body {
   color: #777;
 }
 
-.btn-google {
-  color: white;
-  background-color: #ea4335;
-}
-
-.btn-facebook {
-  color: white;
-  background-color: #3b5998;
-}
 
 /* Fallback for Edge
 -------------------------------------------------- */
