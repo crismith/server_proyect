@@ -1,28 +1,31 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card card-signin my-5">
-          <div class="card-body">
-            <h5 class="card-title text-center">Login</h5>
-            <form class="form-signin" @submit.prevent="sendDataLogin">
-              <div class="form-label-group">
-                <input v-model="emailInput" type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
-                <label for="inputEmail">Username</label>
-              </div>
+  <section class="login-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card card-signin my-5">
+            <div class="card-body">
+              <h5 class="card-title text-center">Login</h5>
+              <form class="form-signin" @submit.prevent="sendDataLogin">
+                <div class="form-label-group">
+                  <input v-model="emailInput" type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+                  <label for="inputEmail">Username</label>
+                </div>
 
-              <div class="form-label-group">
-                <input v-model="passwordInput" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <label for="inputPassword">Password</label>
-              </div>
+                <div class="form-label-group">
+                  <input v-model="passwordInput" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                  <label for="inputPassword">Password</label>
+                </div>
 
-              <button :disabled="!dataModel" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
-            </form>
+                <button :disabled="!dataModel" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
 </template>
 
 <script>
@@ -57,14 +60,22 @@
     }
   }
 </script>
-<style lang="scss" scoped>
+<style>
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
 
 :root {
   --input-padding-x: 1.5rem;
   --input-padding-y: .75rem;
 }
 
-body {
+.login-section {
+  width: 100%;
+  height: 100vh;
   background: #007bff;
   background: linear-gradient(to right, #0062E6, #33AEFF);
 }

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <b-navbar toggleable="lg" type="dark" variant="info" v-if="nameRoute">
-      <h4>
+      <h4 class="m-0">
         <router-link to="/">monhttp</router-link>
       </h4>
 
@@ -25,6 +25,14 @@
 
 <script>
   export default {
+    head: {
+      title: "Ser",
+      // Meta tags
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }, // id to replace intead of create element
+        
+      ],
+    },
     name: 'App',
     computed: {
       nameRoute() {
@@ -35,30 +43,31 @@
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  width: 100%;
-}
-.navbar{
-  background: #3f51b5 !important;
-  a{
-    color: #fff;
-    margin: 0 .8em;
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    width: 100%;
   }
-}
 
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-
-    &.router-link-exact-active {
-      color: #42b983;
+  .navbar{
+    background: #3f51b5 !important;
+    a{
+      color: #fff;
+      margin: 0 .8em;
     }
   }
-}
+
+  #nav {
+    padding: 30px;
+    a {
+      font-weight: bold;
+
+      &.router-link-exact-active {
+        color: #42b983;
+      }
+    }
+  }
 </style>
