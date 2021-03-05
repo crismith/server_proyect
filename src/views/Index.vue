@@ -2,7 +2,7 @@
   <section class="section-dashboard">
     <div class="container-services">
       <div class="card-service card mb-3 ml-md-2 mr-md-2" v-for="(container, index) in containers" :key="index">
-        <div class="card-body body-service">
+        <div class="card-body body-service" @click="openService(container.id)">
           <strong class="card-title text-left d-block name-service">
             <router-link class="url-service" :to="{ path: '/services/'+index}">
               {{ container.name }}
@@ -484,6 +484,9 @@
       },
       getServicesCount(event){
         console.log(event.target.value)
+      },
+      openService(id){
+        this.$router.push({ path: `/services/${id}`});
       }
     }
   }
@@ -500,6 +503,7 @@
       .card-service{
         box-shadow: 0 2px 1px -1px rgb(0, 0, 0,  .20), 0 1px 1px 0 rgb(0, 0, 0, .14), 0 1px 3px 0 rgb(0, 0, 0, .12);
         .body-service{
+          cursor: pointer;
           .name-service{
             margin: 0;
             .url-service{

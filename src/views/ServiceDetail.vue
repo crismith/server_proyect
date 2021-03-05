@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <div class="col-sm-12 mb-3 column-card ">
+      <div class="col-sm-12 mb-3 column-card">
         <div class="card">
           <div class="card-body">
             <div class="d-flex align-items-center text-left mb-2">
@@ -66,14 +66,14 @@
             </div>
 
             <div class="filters-time d-md-flex mt-md-3">
-              <div class="container-input-time mb-2">
+              <div class="container-input-time mb-2 mb-md-0">
                 <input class="form-control input-time" type="datetime-local">
               </div>
-              <div class="container-input-time mb-2">
+              <div class="container-input-time mb-2 mb-md-0">
                 <input class="form-control input-time" type="datetime-local">
               </div>
               <div class="container-input-time ">
-                <select class="form-control input-time">
+                <select class="form-control input-time select-minutes">
                   <option>1 minute</option>
                   <option>5 minute</option>
                   <option selected>15 minute</option>
@@ -358,8 +358,88 @@
       }
     }
   }
-  @media (min-width: 768px) {
 
+  @media (min-width: 768px) {
+    .section-detail-service{
+      .column-detail-service{
+        .column-card{
+          .card{
+            .card-body{
+              .filters-time{
+                justify-content: space-around;
+                .container-input-time{
+                  width: 32%;
+                  .input-time{
+                    margin: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  
+  @media (min-width: 1024px) {
+    .section-detail-service{
+      .column-detail-service{
+        .column-card{
+          .card{
+            .card-body{
+              .data-service{
+                width: 100%;
+                .flex-column{
+                  width: 25%;
+                  .number{
+                    font-size: 16px;
+                    font-weight: 900;
+                  }
+                  .first-title{
+                    font-size: 13px;
+                  }
+                }
+              }
+              .filters-time{
+                justify-content: space-evenly;
+                .container-input-time{
+                  width: 25%;
+                  .input-time{
+                    margin: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .section-detail-service{
+      display: flex;
+      justify-content: center;
+      .column-detail-service{
+        width: 80%;
+        .column-card{
+          .card{
+            .card-body{
+              .filters-time{
+                justify-content: space-evenly;
+                .container-input-time{
+                  width: 25%;
+                  .input-time{
+                    margin: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
 
