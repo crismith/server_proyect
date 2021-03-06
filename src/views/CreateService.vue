@@ -11,9 +11,9 @@
             </h5>
             <form>
               <div class="form-group row">
-                <label for="" class="col-sm-4 col-form-label text-left pl-5">Service Name</label>
+                <label for="" class="col-sm-4 col-form-label text-left pl-5">Service Name*</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="" placeholder="Service Name">
+                  <input type="text" v-model="service.name" class="form-control" id="" placeholder="Service Name*">
                 </div>
               </div>
 
@@ -30,7 +30,7 @@
               <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label text-left pl-5">Check interval in seconds</label>
                 <div class="col-sm-8">
-                  <input type="number" class="form-control" id="" placeholder="Service Name">
+                  <input type="number" v-model="service.intervalInSeconds" class="form-control" id="" placeholder="Service Name">
                 </div>
               </div>
             </form>
@@ -50,19 +50,21 @@
               <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label text-left pl-5">Service Endpoint</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="" placeholder="Service Endpoint*">
+                  <input type="text" v-model="service.endpoint" class="form-control" placeholder="Service EndpointXXS*">
                 </div>
               </div>
 
               <div class="form-group row">
-                <label for="" class="col-sm-4 col-form-label text-left pl-5">Service Type</label>
+                <label for="" class="col-sm-4 col-form-label text-left pl-5">HTTP Method</label>
                 <div class="col-sm-8">
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>GET</option>
-                    <option>POST</option>
-                    <option>PATCH</option>
-                    <option>PUT</option>
-                    <option>DELETE</option>
+                  <select class="form-control" @change="methodHttpChange($event)">
+                    <option 
+                      v-for="(method, index) in methodsHttp"
+                      :selected="method.value === 'GET'"
+                      :key="index" 
+                      :value="method.value">
+                      {{ method.name }}
+                    </option>
                   </select>
                 </div>
               </div>
@@ -70,42 +72,42 @@
               <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label text-left pl-5">Request Timeout</label>
                 <div class="col-sm-8">
-                  <input type="number" class="form-control" id="" placeholder="Request Timeout">
+                  <input type="number" v-model="service.requestTimeoutInSeconds" class="form-control" placeholder="Request Timeout">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label text-left pl-5">HTTP Headers</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="" placeholder="HTTP Headers">
+                  <input type="text" v-model="service.httpHeaders" class="form-control" placeholder="Content-Type:application/json;Authorization:Foo">
                 </div>
               </div>
 
                <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label text-left pl-5">Expected response body</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="" placeholder="Expected response body">
+                  <input type="text" v-model="service.httpBody" class="form-control" placeholder=".*monhttp.*">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label text-left pl-5">Expected response status code</label>
                 <div class="col-sm-8">
-                  <input type="number" class="form-control" id="" placeholder="Expected response status code">
+                  <input type="number" v-model="service.expectedHttpStatusCode" class="form-control" placeholder="Expected response status code">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="checkFollow" class="col-sm-4 col-form-label text-left pl-5">Follow redirects</label>
                 <div class="col-sm-1">
-                  <input type="checkbox" class="form-check-input" id="checkFollow">
+                  <input v-model="service.followRedirects" type="checkbox" class="form-check-input">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="securitySSL" class="col-sm-4 col-form-label text-left pl-5">Verify SSL</label>
                 <div class="col-sm-1">
-                  <input type="checkbox" class="form-check-input" id="securitySSL">
+                  <input v-model="service.verifySsl" type="checkbox" class="form-check-input">
                 </div>
               </div>
             </form>
@@ -125,15 +127,14 @@
               <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label text-left pl-5">Service Endpoint</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="" placeholder="Service Endpoint*">
+                  <input type="text" class="form-control" v-model="service.endpoint" placeholder="Service Endpoint*">
                 </div>
               </div>
-
 
               <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label text-left pl-5">Request Timeout</label>
                 <div class="col-sm-8">
-                  <input type="number" class="form-control" id="" placeholder="Request Timeout">
+                  <input type="number" v-model="service.requestTimeoutInSeconds" class="form-control" placeholder="Request Timeout">
                 </div>
               </div>
             </form>
@@ -153,12 +154,12 @@
               <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label text-left pl-5">Enable notifications</label>
                 <div class="col-sm-1">
-                  <input type="checkbox" class="form-check-input" id="">
+                  <input v-model="service.enableNotifications" type="checkbox" class="form-check-input">
                 </div>
               </div>
 
               <div class="form-group row">
-                <label for="" class="col-sm-4 col-form-label text-left pl-5">Service Type</label>
+                <label for="" class="col-sm-4 col-form-label text-left pl-5">Notifiers</label>
                 <div class="col-sm-8">
                   <select class="form-control">
                     <option>Global</option>
@@ -171,14 +172,14 @@
               <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label text-left pl-5">Notify after failures</label>
                 <div class="col-sm-8">
-                  <input type="number" class="form-control" id="" placeholder="Service Name">
+                  <input type="number" class="form-control" v-model="service.notifyAfterNumberOfFailures" placeholder="Notify after failures">
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="" class="col-sm-4 col-form-label text-left pl-5">Continuously send notifications</label>
                 <div class="col-sm-1">
-                  <input type="checkbox" class="form-check-input" id="">
+                  <input type="checkbox" class="form-check-input" v-model="service.continuouslySendNotifications">
                 </div>
               </div>
             </form>
@@ -200,22 +201,63 @@
     name: 'CreateService',
     data() {
       return {
-        typeService: "http"
+        service: {
+          name: "",
+          typeService: "http",
+          intervalInSeconds: 30,
+          endpoint: "",
+          httpMethod: "GET",
+          requestTimeoutInSeconds: 10,
+          httpHeaders: "",
+          httpBody: "",
+          expectedHttpStatusCode: 200,
+          followRedirects: true,
+          verifySsl: true,
+          enableNotifications: true,
+          notifiers: [],
+          notifyAfterNumberOfFailures: 2,
+          continuouslySendNotifications: true,
+        },
+        methodsHttp: [
+          {name: 'GET', value: "GET"},
+          {name: 'POST', value: "POST"},
+          {name: 'PATCH', value: "PATCH"},
+          {name: 'PUT', value: "PUT"},
+          {name: 'DELETE', value: "DELETE"}
+        ]
       }
     },
     methods: {
       typeServiceChange(event) {
+        this.service.typeService = event.target.value;
+      },
+      methodHttpChange(event) {
         this.typeService = event.target.value;
       }
     },
     computed: {
       typeServiceSelect() {
-        return this.typeService === "http";
+        return this.service.typeService === "http";
+      },
+      isEmptyName() {
+        return this.service.name !== "";
+      },
+      isEmptyIntervalInSeconds(){
+        return this.service.intervalInSeconds !== null;
+      },
+      isEmptyEndpoint(){
+        return this.service.endpoint !== "";
+      },
+      disabledButtonSave(){
+        return this.isEmptyName && this.isEmptyIntervalInSeconds && this.isEmptyEndpoint
       }
     }
   }
 </script>
 
-<style>
+<style scoped>
+  input::placeholder{
+    font-size: 14px;
+  }
 
 </style>

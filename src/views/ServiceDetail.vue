@@ -73,13 +73,14 @@
                 <input class="form-control input-time" type="datetime-local">
               </div>
               <div class="container-input-time ">
-                <select class="form-control input-time select-minutes">
-                  <option>1 minute</option>
-                  <option>5 minute</option>
-                  <option selected>15 minute</option>
-                  <option>30 minute</option>
-                  <option>1 hour</option>
-                  <option>3 hour</option>
+                <select class="form-control input-time select-minutes" @change="searchTime($event)">
+                  <option 
+                    v-for="(time, index) in timeFrames" 
+                    :key="index"
+                    :selected="time.value === '15m'"
+                    :value="time.value">
+                    {{ time.text }}
+                  </option>
                 </select>
               </div>
             </div>
@@ -321,7 +322,26 @@
           //   }
           // }
         },
+        timeFrames: [
+          {value: '1m', text:  "1 minute"},
+          {value: '5m', text:  "5 minute"},
+          {value: '15m', text:  "15 minute"},
+          {value: '30m', text:  "30 minute"},
+          {value: '1h', text:  "1 hour"},
+          {value: '3h', text:  "3 hour"},
+          {value: '6h', text:  "6 hour"},
+          {value: '12h', text:  "12 hour"},
+          {value: '1d', text:  "1 day"},
+          {value: '7d', text:  "7 days"},
+          {value: '14d', text:  "14 days"},
+          {value: '30d', text:  "30 days"},
+        ]
       };
+    },
+    methods: {
+      searchTime(event) {
+        console.log(event.target.value)
+      }
     }
   }
 </script>
