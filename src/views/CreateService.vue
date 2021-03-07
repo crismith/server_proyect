@@ -21,8 +21,8 @@
                 <label for="" class="col-sm-4 col-form-label text-left pl-5">Service Type</label>
                 <div class="col-sm-8">
                   <select class="form-control" @change="typeServiceChange($event)">
-                    <option value="http" selected>HTTP</option>
-                    <option value="icmp-ping">ICMP Ping</option>
+                    <option value="HTTP" selected>HTTP</option>
+                    <option value="ICMP">ICMP Ping</option>
                   </select>
                 </div>
               </div>
@@ -187,11 +187,12 @@
         </div>
       </div>
       
-      <div class="col-sm-12">
-        <button class="btn btn-primary">
-          <b-icon-soundwave ></b-icon-soundwave>
-        </button>
-      </div>
+      <button @click="createService" :disabled="!disabledButtonSave" class="btn btn-primary float">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+        </svg>
+      </button>
     </div>
   </div>
 </template>
@@ -203,7 +204,7 @@
       return {
         service: {
           name: "",
-          typeService: "http",
+          typeService: "HTTP",
           intervalInSeconds: 30,
           endpoint: "",
           httpMethod: "GET",
@@ -216,7 +217,7 @@
           enableNotifications: true,
           notifiers: [],
           notifyAfterNumberOfFailures: 2,
-          continuouslySendNotifications: true,
+          continuouslySendNotifications: false
         },
         methodsHttp: [
           {name: 'GET', value: "GET"},
@@ -232,12 +233,32 @@
         this.service.typeService = event.target.value;
       },
       methodHttpChange(event) {
-        this.typeService = event.target.value;
+        this.service.httpMethod = event.target.value;
+      },
+      createService() {
+        if (!this.disabledButtonSave) return;
+        // http://localhost:8081/api/services POST
+        // continuouslySendNotifications: false
+        // enableNotifications: true
+        // endpoint: "LOOL"
+        // expectedHttpResponseBody: ""
+        // expectedHttpStatusCode: 200
+        // followRedirects: true
+        // httpBody: ""
+        // httpHeaders: ""
+        // httpMethod: "GET"
+        // intervalInSeconds: 30
+        // name: "ICMP"
+        // notifiers: ["global"]
+        // notifyAfterNumberOfFailures: 2
+        // requestTimeoutInSeconds: 10
+        // type: "ICMP_PING"
+        // verifySsl: true
       }
     },
     computed: {
       typeServiceSelect() {
-        return this.service.typeService === "http";
+        return this.service.typeService === "HTTP";
       },
       isEmptyName() {
         return this.service.name !== "";
@@ -255,9 +276,24 @@
   }
 </script>
 
-<style scoped>
+<style >
   input::placeholder{
-    font-size: 14px;
+    font-size: 12px;
+  }
+
+  .float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:30px;
+    right:35px;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+  }
+
+  .my-float{
+    margin-top:22px;
   }
 
 </style>
